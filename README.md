@@ -1,4 +1,4 @@
-# Docker ELK stack
+# Docker ELK stack + Redis server
 
 [![Join the chat at https://gitter.im/deviantony/docker-elk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/deviantony/docker-elk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -11,6 +11,7 @@ Based on the official images:
 * [elasticsearch](https://registry.hub.docker.com/_/elasticsearch/)
 * [logstash](https://registry.hub.docker.com/_/logstash/)
 * [kibana](https://registry.hub.docker.com/_/kibana/)
+* [redis](https://hub.docker.com/_/redis/)
 
 **Note**: Other branches in this project are available:
 
@@ -71,6 +72,8 @@ See: https://www.elastic.co/guide/en/kibana/current/setup.html#connect
 
 By default, the stack exposes the following ports:
 * 5000: Logstash TCP input.
+* 5044: Logstash Filebeat input
+* 6379: Redis
 * 9200: Elasticsearch HTTP
 * 9300: Elasticsearch TCP transport
 * 5601: Kibana
