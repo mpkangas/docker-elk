@@ -41,6 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     sudo pip install docker-compose
     sudo usermod -aG docker vagrant
     sudo -u vagrant pip install docker-compose
+    sudo sysctl -w vm.max_map_count=262144
     sudo docker-compose -f /vagrant/docker-compose.yml up -d
   SHELL
 
