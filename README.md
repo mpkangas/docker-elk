@@ -1,10 +1,8 @@
-# Docker ELK stack
+# Docker ELK stack + Redis server
 
 [![Join the chat at https://gitter.im/deviantony/docker-elk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/deviantony/docker-elk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Run the latest version of the ELK (Elasticseach, Logstash, Kibana) stack with Docker and Docker-compose.
-
-**Note**: This version has [X-Pack support](https://www.elastic.co/products/x-pack).
 
 It will give you the ability to analyze any data set by using the searching/aggregation capabilities of Elasticseach and the visualization power of Kibana.
 
@@ -13,6 +11,12 @@ Based on the official images:
 * [elasticsearch](https://registry.hub.docker.com/_/elasticsearch/)
 * [logstash](https://registry.hub.docker.com/_/logstash/)
 * [kibana](https://registry.hub.docker.com/_/kibana/)
+* [redis](https://hub.docker.com/_/redis/)
+
+**Note**: Other branches in this project are available:
+
+* ELK 5 with X-Pack support: https://github.com/deviantony/docker-elk/tree/x-pack
+* ELK 5 in Vagrant: https://github.com/deviantony/docker-elk/tree/vagrant
 
 # Requirements
 
@@ -60,10 +64,7 @@ Now that the stack is running, you'll want to inject logs in it. The shipped log
 $ nc localhost 5000 < /path/to/logfile.log
 ```
 
-And then access Kibana UI by hitting [http://localhost:5601](http://localhost:5601) with a web browser and use the following credentials to login:
-
-* user: *elastic*
-* password: *changeme*
+And then access Kibana UI by hitting [http://localhost:5601](http://localhost:5601) with a web browser.
 
 *NOTE*: You'll need to inject data into logstash before being able to create a logstash index in Kibana. Then all you should have to do is to hit the create button.
 
@@ -71,6 +72,8 @@ See: https://www.elastic.co/guide/en/kibana/current/setup.html#connect
 
 By default, the stack exposes the following ports:
 * 5000: Logstash TCP input.
+* 5044: Logstash Filebeat input
+* 6379: Redis
 * 9200: Elasticsearch HTTP
 * 9300: Elasticsearch TCP transport
 * 5601: Kibana
