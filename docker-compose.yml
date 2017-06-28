@@ -15,6 +15,8 @@ services:
       - "9300:9300"
     environment:
       ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+    volumes:
+      - ./elasticsearch/data:/usr/share/elasticsearch/data
     networks:
       - docker_elk
   logstash:
@@ -26,6 +28,7 @@ services:
     command: -f /etc/logstash/conf.d/
     volumes:
       - ./logstash/config:/etc/logstash/conf.d
+      - ./logstash/geoip:/etc/logstash/geoip
     ports:
       - "5000:5000"
       - "5044:5044"
