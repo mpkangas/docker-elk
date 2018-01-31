@@ -6,3 +6,4 @@ RUN logstash-plugin install logstash-filter-json
 RUN logstash-plugin install logstash-filter-ruby
 RUN logstash-plugin install logstash-input-redis
 RUN logstash-plugin install logstash-input-beats
+RUN logstash-plugin install logstash-output-hipchat
