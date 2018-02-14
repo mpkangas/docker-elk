@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash:6.1.2
+FROM docker.elastic.co/logstash/logstash:6.2.0
 
 # Add your logstash plugins setup here
 # Example: RUN logstash-plugin install logstash-filter-json
