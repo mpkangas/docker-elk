@@ -8,3 +8,4 @@ RUN logstash-plugin install logstash-input-redis
 RUN logstash-plugin install logstash-input-beats
 RUN logstash-plugin install logstash-output-hipchat
 RUN logstash-plugin install logstash-output-http
+RUN logstash-plugin install logstash-filter-json_encode
